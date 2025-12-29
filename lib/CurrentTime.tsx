@@ -1,0 +1,10 @@
+'use client'
+
+export default function CurrentTime(){
+  return (
+    <div className="bg-blue-50 border-l-4 border-blue-500 p-4">
+      <h3 className="font-semibold mb-2">現在時間</h3>
+      <p className="text-2xl font-mono text-blue-900">{new Date().toLocaleString()}</p>
+    </div>
+ )
+}
