@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { NavLink } from "./NavLink";
 import "./globals.css";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Next.js 16 Cache Component 教學",
@@ -8,13 +9,13 @@ export const metadata: Metadata = {
 };
 
 function NavBar() {
-  // 讀取環境變數,決定顯示哪些路由
-  const useCacheComponent = process.env.USE_CACHE_COMPONENT === 'true';
+  const useCacheComponent = false
   
   const routes = useCacheComponent
     ? [
-        { path: "/new-page-cache", label: "Page 層級 Cache" },
-        { path: "/new-component-cache", label: "Component/Function Cache" },
+        { path: "/new-file-cache", label: "File 層級 Cache" },
+        { path: "/new-component-cache", label: "Component 層級 Cache" },
+        { path: "/new-function-cache", label: "Function 層級 Cache" },
       ]
     : [
         { path: "/old-full-cache", label: "舊版 Full Cache" },
@@ -52,7 +53,9 @@ export default function RootLayout({
       <body className="min-h-screen bg-gray-50">
         <NavBar />
         <main className="container mx-auto p-8">
-          {children}
+          <Suspense fallback={<h1>Loading...</h1>}>
+            {children}
+          </Suspense>
         </main>
       </body>
     </html>

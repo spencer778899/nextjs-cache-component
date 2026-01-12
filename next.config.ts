@@ -1,7 +1,7 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  cacheComponents: process.env.USE_CACHE_COMPONENT === 'true',
+  cacheComponents: false,
   turbopack: {
     root: __dirname,
   },

@@ -8,7 +8,7 @@ export function NavLink({ href, children }: { href: string; children: React.Reac
   const isActive = pathname === href;
 
   return (
-    <Link
+    <a
       href={href}
       className={`px-3 py-2 rounded transition-colors ${
         isActive
@@ -17,6 +17,6 @@ export function NavLink({ href, children }: { href: string; children: React.Reac
       }`}
     >
       {children}
-    </Link>
+    </a>
   );
 }

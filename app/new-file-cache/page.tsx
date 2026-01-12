@@ -1,15 +1,15 @@
+// make sure to enable cacheComponents in next.config.js
+// 'use cache'
 import CurrentTime from "@/lib/CurrentTime";
 import { getCurrentTime } from "@/lib/time";
 
-export default async function NewComponentCachePage() {
-    // make sure to enable cacheComponents in next.config.js
-    // 'use cache'   
-    const renderTime = await getCurrentTime();
+export default async function NewFileCachePage() {
+  const renderTime = await getCurrentTime();
 
 
   return (
     <div className="max-w-4xl">
-      <h1 className="text-3xl font-bold mb-4">情境4: Component 層級 Cache</h1>
+      <h1 className="text-3xl font-bold mb-4">情境3: 新版 file 層級 Cache</h1>
       
       <div className="bg-white rounded-lg shadow p-6 mb-6">
         <h2 className="text-xl font-semibold mb-3">說明</h2>

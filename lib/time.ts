@@ -1,17 +1,14 @@
-/**
- * 從 TimezoneDB API 獲取台灣當前時間
- * 這樣可以在使用 "use cache" 的頁面中也能顯示時間
- */
 export async function getCurrentTime(): Promise<string> {
   try {
     const response = await fetch(
-      'http://api.timezonedb.com/v2.1/get-time-zone?key=EBEDQK7ETGZK&format=json&by=zone&zone=Asia/Taipei',
+      'https://api.timezonedb.com/v2.1/get-time-zone?key=EBEDQK7ETGZK&format=json&by=zone&zone=Asia/Taipei',
       {
         method: 'GET',
         headers: {
           'content-type': 'application/json',
         },
-      }
+      },
+      
     );
 
     if (!response.ok) {
