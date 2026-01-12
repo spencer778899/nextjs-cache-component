@@ -1,6 +1,8 @@
 import CurrentTime from "@/lib/CurrentTime";
+import { cookies } from "next/headers";
 
 export default async function OldFullCachePage() {
+  await cookies();
   const renderTime = new Date().toLocaleString();
 
   return (

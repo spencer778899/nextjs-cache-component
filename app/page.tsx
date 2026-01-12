@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
 export default function Home() {
-  const useCacheComponent = false;
+  const useCacheComponent = true;
   const targetPage = useCacheComponent ? "/new-file-cache" : "/old-full-cache";
   
   redirect(targetPage);

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 function NavBar() {
-  const useCacheComponent = false
+  const useCacheComponent = true
   
   const routes = useCacheComponent
     ? [

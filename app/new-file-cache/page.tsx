@@ -1,11 +1,13 @@
-// make sure to enable cacheComponents in next.config.js
-// 'use cache'
 import CurrentTime from "@/lib/CurrentTime";
-import { getCurrentTime } from "@/lib/time";
+import { cookies } from "next/headers";
+import ComponentRenderTime from "./ComponentRenderTime";
 
 export default async function NewFileCachePage() {
-  const renderTime = await getCurrentTime();
+  const useCacheComponent = true;
 
+  if(useCacheComponent){
+    await cookies();
+  }
 
   return (
     <div className="max-w-4xl">
@@ -16,10 +18,7 @@ export default async function NewFileCachePage() {
         <p className="text-gray-700 mb-2">觀察渲染時間差異</p>
       </div>
 
-      <div className="bg-blue-50 border-l-4 border-blue-900 p-4">
-        <h3 className="font-semibold mb-2">頁面渲染時間</h3>
-        <p className="text-2xl font-mono text-blue-900">{renderTime}</p>
-      </div>
+      <ComponentRenderTime />
       <CurrentTime />
     </div>
   );
