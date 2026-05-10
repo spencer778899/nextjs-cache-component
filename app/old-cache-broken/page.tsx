@@ -1,19 +1,20 @@
 import { cookies } from "next/headers";
-import { getCurrentTime } from "@/lib/time";
 import CurrentTime from "@/lib/CurrentTime";
 
 export default async function OldCacheBrokenPage() {
   const useCacheComponent = false;
-  const renderTime = new Date().toLocaleString();   
-  
+  const renderTime = new Date().toLocaleString();
+
   if (!useCacheComponent) {
     await cookies();
   }
 
   return (
     <div className="max-w-4xl">
-      <h1 className="text-3xl font-bold mb-4">情境1: 舊版 Full Router Cache (Broken)</h1>
-      
+      <h1 className="text-3xl font-bold mb-4">
+        情境1: 舊版 Full Router Cache (Broken)
+      </h1>
+
       <div className="bg-white rounded-lg shadow p-6 mb-6">
         <h2 className="text-xl font-semibold mb-3">說明</h2>
         <p className="text-gray-700 mb-2">觀察渲染時間差異</p>
