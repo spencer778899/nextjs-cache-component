@@ -9,18 +9,11 @@ export const metadata: Metadata = {
 };
 
 function NavBar() {
-  const useCacheComponent = true
-  
-  const routes = useCacheComponent
-    ? [
+  const routes = [
         { path: "/new-file-cache", label: "File 層級 Cache" },
         { path: "/new-component-cache", label: "Component 層級 Cache" },
         { path: "/new-function-cache", label: "Function 層級 Cache" },
       ]
-    : [
-        { path: "/old-full-cache", label: "舊版 Full Cache" },
-        { path: "/old-cache-broken", label: "Cache 被破壞" },
-      ];
 
   return (
     <nav className="bg-gray-800 text-white p-4">
@@ -28,7 +21,7 @@ function NavBar() {
         <h1 className="text-xl font-bold mb-4">
           Next.js 16 Cache Demo
           <span className="text-sm ml-2 text-gray-400">
-            ({useCacheComponent ? 'full route cache' : 'cache component'})
+            (cache component)
           </span>
         </h1>
         <ul className="flex gap-4 flex-wrap">
@@ -53,9 +46,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-gray-50">
         <NavBar />
         <main className="container mx-auto p-8">
-          <Suspense fallback={<h1>Loading...</h1>}>
-            {children}
-          </Suspense>
+          <Suspense fallback={<h1>Loading...</h1>}>{children}</Suspense>
         </main>
       </body>
     </html>
